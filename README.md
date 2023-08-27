@@ -5,7 +5,7 @@
 - firebase
 - react-router-dom
 - Material-ui
-- React-form
+- Formik for Form validation
 - Redux tool kit
 
 # Features
