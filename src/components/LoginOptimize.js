@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
-import { BG_URL } from "../constants/constants";
+import { BG_URL, USER_AVATAR } from "../constants/constants";
 import { checkValidData, checkValidDataWithName } from "../utils/validate";
 
 import {
@@ -9,7 +9,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/slices/UserSlice";
 
@@ -17,7 +17,7 @@ const LoginOP = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // get the reference of input fields by useRef
@@ -40,7 +40,7 @@ const LoginOP = () => {
       // console.log({ signUp: user });
       await updateProfile(user, {
         displayName: userName,
-        photoURL: "https://avatars.githubusercontent.com/u/53579888?v=4",
+        photoURL: USER_AVATAR,
       });
       const { uid, email, displayName, photoURL } = auth.currentUser;
 
@@ -53,7 +53,7 @@ const LoginOP = () => {
         })
       );
 
-      navigate("/browse");
+      // navigate("/browse");
       // console.log("User signed up successfully!");
     } catch (error) {
       handleAuthError(error);
@@ -68,7 +68,7 @@ const LoginOP = () => {
       // const user = userCredential.user;
       // console.log({ signIn: user });
 
-      navigate("/browse");
+      // navigate("/browse");
     } catch (error) {
       handleAuthError(error);
     }
