@@ -1,4 +1,4 @@
-- ## Email
+## Email
 
 - ^ - The beginning of the string.
 - ( - Start of a capturing group.
@@ -10,7 +10,7 @@
 - ) - End of the capturing group.
 - $ - The end of the string.
 
- ## Password
+## Password
 
 - ^ - The password string will start this way
 - (?=._[a-z]) - The string must contain at least 1 lowercase alphabetical character

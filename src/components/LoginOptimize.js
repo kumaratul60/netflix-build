@@ -9,10 +9,16 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/slices/UserSlice";
 
-const Login = () => {
+const LoginOP = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // get the reference of input fields by useRef
   const name = useRef(null);
@@ -23,85 +29,80 @@ const Login = () => {
     setIsSignInForm(!isSignInForm);
   };
 
-  const handleBtnClick = () => {
-    let validationRes;
-    if (name.current) {
-      validationRes = checkValidDataWithName(
-        name.current.value.trim(),
-        email.current.value,
-        password.current.value
+  const handleSignUp = async (userName, userEmail, userPassword) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        userEmail,
+        userPassword
       );
-    } else {
-      validationRes = checkValidData(
-        email.current.value,
-        password.current.value
+      const user = userCredential.user;
+      // console.log({ signUp: user });
+      await updateProfile(user, {
+        displayName: userName,
+        photoURL: "https://avatars.githubusercontent.com/u/53579888?v=4",
+      });
+      const { uid, email, displayName, photoURL } = auth.currentUser;
+
+      dispatch(
+        addUser({
+          uid: uid,
+          email: email,
+          displayName: displayName,
+          photoURL,
+        })
       );
+
+      navigate("/browse");
+      // console.log("User signed up successfully!");
+    } catch (error) {
+      handleAuthError(error);
     }
+  };
 
-    setErrorMessage(validationRes);
+  const handleSignIn = async (userEmail, userPassword) => {
+    try {
+      await signInWithEmailAndPassword(auth, userEmail, userPassword);
 
-    // if(!validationRes){// sign in / sign up} or  if (validationRes) return
+      // const userCredential = await signInWithEmailAndPassword(auth, userEmail, userPassword);
+      // const user = userCredential.user;
+      // console.log({ signIn: user });
+
+      navigate("/browse");
+    } catch (error) {
+      handleAuthError(error);
+    }
+  };
+
+  const handleAuthError = (error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    setErrorMessage(`Something went wrong: ${errorCode} - ${errorMessage}`);
+  };
+
+  const handleBtnClick = () => {
+    const userName = name.current ? name.current.value.trim() : "";
     const userEmail = email.current.value;
     const userPassword = password.current.value;
+
+    const validationRes = name.current
+      ? checkValidDataWithName(userName, userEmail, userPassword)
+      : checkValidData(userEmail, userPassword);
+
+    setErrorMessage(validationRes);
 
     if (validationRes) return;
 
     if (!isSignInForm) {
-      const userName = name.current.value;
-      if (!userName || userName.length === 0) {
+      if (!userName) {
         alert("Please enter your name");
-        return; // Exit the function
+        return;
       }
 
-      // Sign up Logic
-      createUserWithEmailAndPassword(auth, userEmail, userPassword)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          // console.log({ signIn: user });
-          // Update the user's display name
-          return updateProfile(user, {
-            displayName: userName,
-          });
-        })
-        .then(() => {
-          console.log("👍🏼");
-        })
-
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMessage(
-            `something went wrong: ${errorCode} - ${errorMessage}`
-          );
-        });
+      handleSignUp(userName, userEmail, userPassword);
     } else {
-      // Sign in Logic
-      signInWithEmailAndPassword(auth, userEmail, userPassword)
-        .then((userCredential) => {
-          // Signed in
-
-          const user = userCredential.user;
-          // console.log({ signUp: user });
-        })
-        .then(() => {
-          console.log("🚀");
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setErrorMessage(
-            `something went wrong: ${errorCode} - ${errorMessage}`
-          );
-        });
+      handleSignIn(userEmail, userPassword);
     }
-
-    // Sign in/ sign up
-
-    // console.log(email.current.value);
-    // console.log(password.current.value);
-    // if (name.current) {
-    //   console.log(name.current.value);
-    // }
   };
 
   const formType = isSignInForm ? "Sign In" : "Sign Up";
@@ -167,4 +168,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginOP;
