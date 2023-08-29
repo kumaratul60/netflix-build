@@ -9,15 +9,14 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
-// import { useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/slices/UserSlice";
+import { addUser } from "../utils/slices/userSlice";
 
 const LoginOP = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  // const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // get the reference of input fields by useRef
@@ -37,7 +36,7 @@ const LoginOP = () => {
         userPassword
       );
       const user = userCredential.user;
-      // console.log({ signUp: user });
+
       await updateProfile(user, {
         displayName: userName,
         photoURL: USER_AVATAR,
@@ -52,9 +51,6 @@ const LoginOP = () => {
           photoURL,
         })
       );
-
-      // navigate("/browse");
-      // console.log("User signed up successfully!");
     } catch (error) {
       handleAuthError(error);
     }
@@ -77,7 +73,7 @@ const LoginOP = () => {
   const handleAuthError = (error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    setErrorMessage(`Something went wrong: ${errorCode} - ${errorMessage}`);
+    setErrorMessage(` ${errorCode} - ${errorMessage}`);
   };
 
   const handleBtnClick = () => {

@@ -4,7 +4,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, removeUser } from "../utils/slices/UserSlice";
+import { addUser, removeUser } from "../utils/slices/userSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ const Header = () => {
 
     // Unsubscribe when component unmount
     return () => unsubscribe();
-  }, [dispatch]);
+  }, [dispatch, navigate]);
 
   return (
     <div className="absolute w-screen px-14 py-3 bg-gradient-to-b from-black z-10 flex justify-between">

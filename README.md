@@ -1,4 +1,6 @@
-# Netflix GPT Tools
+# NetflixGPT-build
+
+### Process & Planning for development
 
 - React
 - Tailwind-CSS
@@ -20,10 +22,33 @@
 - Unsubscribed to the onAuthStateChanged callback
 - Get Data from TMDB now playing movies list API
 - Custom Hook for Now Playing Movies
-- Create movieSlice
+- Create nowPlayingSlice to store movies
 - Update Store with movies Data
+- Planning for MainContainer & secondary container
+- Fetch Data for Trailer Video
+- Update Store with Trailer Video Data
+- Embedded the Youtube video and make it autoplay and mute
+- Tailwind Classes to make Main Container look awesome
+- Build Secondary Component
+- Build Movie List
+- build Movie Card
+- TMDB Image CDN URL
+- Made the Browser page amazing with Tailwind CSS
+- usePopularMovies Custom hook
+- GPT Search Page
+- GPT Search Bar
+- Multi-language Feature in our App
+- Get Open AI Api Key
+- Gpt Search API Call
+- fetched gptMoviesSuggestions from TMDB
+- created gptSlice added data
+- Reused Movie List component to make movie suggestion container
+- Memoization
+- Added .env file
+- Adding .env file to gitignore
+- Made our Site Responsive
 
-# Features
+## **Core Features**
 
 **Before Authentication**
 
