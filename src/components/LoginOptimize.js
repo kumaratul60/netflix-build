@@ -11,7 +11,7 @@ import {
 import { auth } from "../firebase/firebase";
 
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/slices/userSlice";
+import { addUser } from "../utils/slices/authUserSlice";
 
 const LoginOP = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);

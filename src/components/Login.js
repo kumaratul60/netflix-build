@@ -57,7 +57,7 @@ const Login = () => {
       createUserWithEmailAndPassword(auth, userEmail, userPassword)
         .then((userCredential) => {
           const user = userCredential.user;
-        
+
           // Update the user's display name
           return updateProfile(user, {
             displayName: userName,
