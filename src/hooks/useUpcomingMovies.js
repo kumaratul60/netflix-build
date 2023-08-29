@@ -1,0 +1,21 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { API_OPTIONS, UPCOMING_MOVIES } from "../constants/constants";
+import { addUpcomingMovies } from "../utils/slices/nowPlayingSlice";
+
+const useUpcomingMovies = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
+  const fetchMovies = async () => {
+    const movies = await fetch(UPCOMING_MOVIES, API_OPTIONS);
+    const moviesResponse = await movies.json();
+
+    dispatch(addUpcomingMovies(moviesResponse.results));
+  };
+};
+
+export default useUpcomingMovies;

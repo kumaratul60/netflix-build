@@ -1,4 +1,4 @@
-# NetflixGPT-build
+# <mark>NetflixGPT-build
 
 ### Process & Planning for development
 
@@ -9,6 +9,7 @@
 - Header
 - Login Form
 - Sign up Form
+- Login as guest
 - Form Validation
 - useRef Hook
 - Firebase Setup
@@ -34,7 +35,7 @@
 - build Movie Card
 - TMDB Image CDN URL
 - Made the Browser page amazing with Tailwind CSS
-- usePopularMovies Custom hook
+- Created Custom hooks
 - GPT Search Page
 - GPT Search Bar
 - Multi-language Feature in our App
@@ -66,7 +67,7 @@
     - Trailer in background
     - Title & description
     - Movie Suggestions
-      - MovieList \* N (in vertical scroll)
+      - MovieList * N (in vertical scroll)
 
 - Netflix GPT
   - Search Bar

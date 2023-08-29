@@ -112,53 +112,60 @@ const LoginOP = () => {
       <div>
         <Header />
         <div className="absolute">
-          <img className="object-cover" src={BG_URL} alt="background-logo" />
+          <img className="object-cover" src={ BG_URL } alt="background-logo" />
         </div>
       </div>
 
       <form
-        onSubmit={(e) => e.preventDefault()}
+        onSubmit={ (e) => e.preventDefault() }
         className="w-full md:w-4/12 absolute p-12 bg-[#040100] bg-opacity-90 my-32 mx-auto right-0 left-0 text-white rounded-lg "
       >
-        <h1 className="text-3xl font-semibold my-3 mx-10">{formType}</h1>
-        {!isSignInForm && (
+        <h1 className="text-3xl font-semibold my-3 mx-10">{ formType }</h1>
+        { !isSignInForm && (
           <input
-            ref={name}
+            ref={ name }
             className="w-9/12 p-2 py-4 my-2 px-5 mx-10 rounded-md bg-[#333333] outline-none focus:ring-2"
             type="text"
             placeholder="Name"
           />
-        )}
+        ) }
         <input
-          ref={email}
+          ref={ email }
           className="w-9/12 p-2 py-4 my-2 px-5 mx-10 rounded-md bg-[#333333] outline-none focus:ring-2"
           type="text"
           placeholder="Email Address"
         />
         <input
-          ref={password}
+          ref={ password }
           className="w-9/12 p-2 py-4 my-2 px-5 mx-10 rounded-md bg-[#333333] outline-none focus:ring-2"
           type="password"
           placeholder="Password"
         />
         <p className="text-red-500 text-sm font-semibold  mx-11 my-[-6px] mb-8">
-          {errorMessage}
+          { errorMessage }
         </p>
         <button
           className="w-9/12 p-2 py-4 my-6 px-5 mx-10 rounded-md  bg-[#E50914]"
-          onClick={handleBtnClick}
+          onClick={ handleBtnClick }
         >
-          {buttonText}
+          { buttonText }
         </button>
+
         <p className="mt-14 mx-14">
-          <span className="text-gray-400">{promptText}</span>
+          <span className="text-gray-400">{ promptText }</span>
           <span
             className="hover:underline cursor-pointer"
-            onClick={toggleSignUpForm}
+            onClick={ toggleSignUpForm }
           >
-            {isSignInForm ? " Sign up now" : " Sign in now"}
+            { isSignInForm ? " Sign up now" : " Sign in now" }
           </span>
         </p>
+        { isSignInForm && (
+          <p className="mt-2 mx-20 space-x-2">
+            <span className="text-gray-200"> test@in.in </span>
+            <span className=" text-green-500">Test@123</span>
+          </p>
+        ) }
       </form>
     </div>
   );
