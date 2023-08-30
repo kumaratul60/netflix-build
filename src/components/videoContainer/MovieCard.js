@@ -1,4 +1,3 @@
-import React from "react";
 import { IMAGE_URL } from "../../constants/constants";
 
 const MovieCard = ({ posterPath }) => {
