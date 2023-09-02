@@ -29,10 +29,6 @@ export const API_URL = "https://api.themoviedb.org/3/movie/now_playing?page=1";
 
 export const VIDEOS_API = `https://api.themoviedb.org/3/movie/`;
 
-export const PLATFORM = "https://www.youtube.com/watch?v=";
-
-export const IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
-
 export const POPULAR_MOVIES =
   "https://api.themoviedb.org/3/movie/popular?page=1";
 
@@ -42,9 +38,20 @@ export const TOP_RATED_MOVIES =
 export const UPCOMING_MOVIES =
   "https://api.themoviedb.org/3/movie/upcoming?page=1";
 
+export const PLATFORM = "https://www.youtube.com/watch?v=";
+
+export const IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
+
 export const SUPPORTED_LANGUAGES = [
   { identifier: "en", name: "English" },
   { identifier: "hindi", name: "Hindi" },
   { identifier: "spanish", name: "Spanish" },
   { identifier: "french", name: "French" },
 ];
+
+export const OPENAI_KEY = "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";
+// "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"
+
+export const MOVIE_SEARCH_API = "https://api.themoviedb.org/3/search/movie";
+// "https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&page=1";
+
