@@ -13,8 +13,7 @@ export const USER_AVATAR =
 export const GUEST_USER_ICON =
   "https://lab.kb.nl/sites/default/files/styles/large/public/images/font-awesome_4-7-0_user_256_0_333333_none.png?itok=Ur-NisRj";
 
-const API_TOKEN =
-  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTU4MmZmY2VjNjdiMjBjN2U0NTRiZGQ2ZGMyNmQzNSIsInN1YiI6IjYyMTFkOGYxNDRhNDI0MDA0NmNhMTRkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.c8x55qus4A4F_AyIMOvKyWsTaKtEDHES03QMqpIhc5c";
+const API_TOKEN = process.env.REACT_APP_TMBD_KEY;
 
 export const API_OPTIONS = {
   method: "GET",
@@ -42,6 +41,9 @@ export const PLATFORM = "https://www.youtube.com/watch?v=";
 
 export const IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
 
+export const NULL_IMAGE =
+  "https://cdn.pixabay.com/photo/2018/08/26/23/55/woman-3633737_1280.jpg";
+
 export const SUPPORTED_LANGUAGES = [
   { identifier: "en", name: "English" },
   { identifier: "hindi", name: "Hindi" },
@@ -49,9 +51,7 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "french", name: "French" },
 ];
 
-export const OPENAI_KEY = "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";
-// "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"
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
 
 export const MOVIE_SEARCH_API = "https://api.themoviedb.org/3/search/movie";
 // "https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&page=1";
-

@@ -46,7 +46,7 @@ const useSearchMovie = () => {
     dispatch(
       addGptMoviesResult({
         movieNames: extractedMovieNames,
-        movieResult: tmdbMovieResults,
+        movieResults: tmdbMovieResults,
       })
     );
   };
