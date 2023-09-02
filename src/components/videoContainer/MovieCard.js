@@ -6,8 +6,8 @@ const MovieCard = ({ posterPath }) => {
   return (
     <div className="w-[120px] md:w-[150px] lg:w-[200px] xl:w-[170px]">
       <img
-        className="w-full h-auto md:h-[180px] lg:h-[240px] xl:h-[190px] object-cover rounded cursor-pointer hover:scale-110 transform transition duration-300 ease-out"
-        src={posterPath !== null ? SRC_IMG : NULL_IMAGE}
+        className="w-full md:h-[180px] lg:h-[240px] xl:h-[190px] object-cover rounded cursor-pointer hover:scale-90 transform transition duration-300 ease-in"
+        src={ posterPath !== null ? SRC_IMG : NULL_IMAGE }
         alt="bg-poster"
       />
     </div>
