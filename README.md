@@ -67,8 +67,9 @@
     - Trailer in background
     - Title & description
     - Movie Suggestions
-      - MovieList * N (in vertical scroll)
+      - MovieList \* N (in vertical scroll)
 
 - Netflix GPT
   - Search Bar
   - Movie Suggestion
+  - Multi-Lingual support

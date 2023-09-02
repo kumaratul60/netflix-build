@@ -10,7 +10,8 @@ export const SIGN_OUT_LOGO =
 export const USER_AVATAR =
   "https://steamuserimages-a.akamaihd.net/ugc/952979309891314703/9532DF045969448C2280ACAF3E181CDF190D4EA2/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false";
 
-  export const GUEST_USER_ICON = "https://lab.kb.nl/sites/default/files/styles/large/public/images/font-awesome_4-7-0_user_256_0_333333_none.png?itok=Ur-NisRj"
+export const GUEST_USER_ICON =
+  "https://lab.kb.nl/sites/default/files/styles/large/public/images/font-awesome_4-7-0_user_256_0_333333_none.png?itok=Ur-NisRj";
 
 const API_TOKEN =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTU4MmZmY2VjNjdiMjBjN2U0NTRiZGQ2ZGMyNmQzNSIsInN1YiI6IjYyMTFkOGYxNDRhNDI0MDA0NmNhMTRkMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.c8x55qus4A4F_AyIMOvKyWsTaKtEDHES03QMqpIhc5c";
@@ -40,3 +41,10 @@ export const TOP_RATED_MOVIES =
 
 export const UPCOMING_MOVIES =
   "https://api.themoviedb.org/3/movie/upcoming?page=1";
+
+export const SUPPORTED_LANGUAGES = [
+  { identifier: "en", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "spanish", name: "Spanish" },
+  { identifier: "french", name: "French" },
+];

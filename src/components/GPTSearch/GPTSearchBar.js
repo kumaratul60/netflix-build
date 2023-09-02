@@ -1,27 +1,26 @@
 import React from "react";
+import lang from "../../constants/languageConstants";
+import { useSelector } from "react-redux";
 const GPTSearchBar = () => {
+  const getSelectedLanguage = useSelector((store) => store.config.language);
+  if (!getSelectedLanguage) return;
+
   return (
-    <div className="flex justify-center bg-black py-4">
-      <form className="flex items-center bg-white rounded-full px-12">
+    <div className="pt-[10%] flex justify-center">
+      <form
+        className="w-1/2 bg-black grid grid-cols-12 rounded-full"
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
         <input
-          className="bg-transparent bg-gradient-to-r from bg-white pl-2  border-none focus:outline-none w-[500px] px-20 py-4 pr-2 placeholder-gray-500"
+          className=" px-6 col-span-10 border-none focus:outline-none py-4 placeholder-gray-500  rounded-l-full bg-slate-100 caret-red-600"
           type="text"
-          placeholder="Search"
+          placeholder={lang[getSelectedLanguage]?.gptSearchPlaceholder}
         />
-        <button className="ml-4 text-gray-600 hover:text-gray-900">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-6 h-6"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
+
+        <button className="m-auto col-span-2 text-gray-600 hover:text-sky-900 rounded-r-full">
+          {lang[getSelectedLanguage]?.search}
         </button>
       </form>
     </div>
