@@ -1,14 +1,14 @@
 import React, { useRef, useState } from "react";
-import Header from "./Header";
-import { BG_URL } from "../constants/constants";
-import { checkValidData, checkValidDataWithName } from "../utils/validate";
+import Header from "../Header";
+import { BG_URL } from "../../constants/constants";
+import { checkValidData, checkValidDataWithName } from "../../utils/validate";
 
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "../firebase/firebase";
+import { auth } from "../../firebase/firebase";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);

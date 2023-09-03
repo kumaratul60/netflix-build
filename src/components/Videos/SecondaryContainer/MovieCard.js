@@ -1,4 +1,4 @@
-import { IMAGE_URL, NULL_IMAGE } from "../../constants/constants";
+import { IMAGE_URL, NULL_IMAGE } from "../../../constants/constants";
 
 const MovieCard = ({ posterPath }) => {
   const SRC_IMG = `${IMAGE_URL}${posterPath}`;

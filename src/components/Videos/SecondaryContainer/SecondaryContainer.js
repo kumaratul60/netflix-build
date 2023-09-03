@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import MovieList from "./MovieList";
 import { useSelector } from "react-redux";
-import ShimmerEffect from "../ShimmerEffect";
+import ShimmerEffect from "../../Shimmer/ShimmerEffect";
 
 const isNotEmptyArray = (array) => Array.isArray(array) && array.length > 0;
 

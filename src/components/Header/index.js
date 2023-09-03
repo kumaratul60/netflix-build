@@ -1,64 +1,17 @@
-import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import {
   NETFLIX_LOGO,
   SIGN_OUT_LOGO,
   SUPPORTED_LANGUAGES,
-} from "../constants/constants";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../firebase/firebase";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { addUser, removeUser } from "../utils/slices/authUserSlice";
-import { gptToggle } from "../utils/slices/gptSlice";
-import { changeLanguage } from "../utils/slices/configSlice";
+} from "../../constants/constants";
+
+import useAuthHeaderActions from "../../hooks/useAuthHeaderActions";
 
 const Header = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const showGptSearchState = useSelector((store) => store.gpt?.showGptSearch);
-
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((error) => {
-        navigate("/error");
-      });
-  };
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const { uid, email, displayName, photoURL } = user;
-        dispatch(
-          addUser({
-            uid: uid,
-            email: email,
-            displayName: displayName,
-            photoURL,
-          })
-        );
-        navigate("/browse");
-      } else {
-        // User is signed out
-        dispatch(removeUser());
-        navigate("/");
-      }
-    });
-
-    // Unsubscribe when component unmount
-    return () => unsubscribe();
-  }, [dispatch, navigate]);
-
-  const handleGptSearchClick = () => {
-    dispatch(gptToggle());
-  };
-
-  const handleLanguageChange = (e) => {
-    dispatch(changeLanguage(e.target.value));
-  };
+  const { handleSignOut, handleGptSearchClick, handleLanguageChange } =
+    useAuthHeaderActions();
 
   return (
     <div className="absolute w-screen px-14 py-3 bg-gradient-to-b from-black z-10 flex justify-between">

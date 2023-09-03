@@ -1,18 +1,12 @@
-// import Login from "../components/Login";
-import Browse from "../components/Browse";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import LoginOP from "../components/LoginOptimize";
+import Browse from "../components/Browse";
+import LoginOP from "../components/Login";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
     {
       path: "/",
-      element: (
-        <>
-          {/* <Login /> */}
-          <LoginOP />
-        </>
-      ),
+      element: <LoginOP />,
     },
     {
       path: "/browse",

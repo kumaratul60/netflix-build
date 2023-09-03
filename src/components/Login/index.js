@@ -1,80 +1,24 @@
-import { useRef, useState } from "react";
-import Header from "./Header";
-import { BG_URL, GUEST_USER_ICON, USER_AVATAR } from "../constants/constants";
-import { checkValidData, checkValidDataWithName } from "../utils/validate";
-
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
-import { auth } from "../firebase/firebase";
-
-import { useDispatch } from "react-redux";
-import { addUser } from "../utils/slices/authUserSlice";
+import { useRef } from "react";
+import Header from "../Header";
+import { BG_URL } from "../../constants/constants";
+import { checkValidData, checkValidDataWithName } from "../../utils/validate";
+import useAuth from "../../hooks/useAuth";
 
 const LoginOP = () => {
-  const [isSignInForm, setIsSignInForm] = useState(true);
-  const [errorMessage, setErrorMessage] = useState(null);
-
-  const dispatch = useDispatch();
+  const {
+    isSignInForm,
+    errorMessage,
+    handleErrorMessageText,
+    toggleSignUpForm,
+    handleSignUp,
+    handleSignIn,
+    handleGuestLogin,
+  } = useAuth();
 
   // get the reference of input fields by useRef
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
-
-  const toggleSignUpForm = () => {
-    setIsSignInForm(!isSignInForm);
-  };
-
-  const handleSignUp = async (userName, userEmail, userPassword) => {
-    try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        userEmail,
-        userPassword
-      );
-      const user = userCredential.user;
-
-      await updateProfile(user, {
-        displayName: userName,
-        photoURL: USER_AVATAR,
-      });
-      const { uid, email, displayName, photoURL } = auth.currentUser;
-
-      dispatch(
-        addUser({
-          uid: uid,
-          email: email,
-          displayName: displayName,
-          photoURL,
-        })
-      );
-    } catch (error) {
-      handleAuthError(error);
-    }
-  };
-
-  const handleSignIn = async (userEmail, userPassword) => {
-    try {
-      await signInWithEmailAndPassword(auth, userEmail, userPassword);
-
-      // const userCredential = await signInWithEmailAndPassword(auth, userEmail, userPassword);
-      // const user = userCredential.user;
-      // console.log({ signIn: user });
-
-      // navigate("/browse");
-    } catch (error) {
-      handleAuthError(error);
-    }
-  };
-
-  const handleAuthError = (error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    setErrorMessage(` ${errorCode} - ${errorMessage}`);
-  };
 
   const handleBtnClick = () => {
     const userName = name.current ? name.current.value.trim() : "";
@@ -85,7 +29,7 @@ const LoginOP = () => {
       ? checkValidDataWithName(userName, userEmail, userPassword)
       : checkValidData(userEmail, userPassword);
 
-    setErrorMessage(validationRes);
+    handleErrorMessageText(validationRes);
 
     if (validationRes) return;
 
@@ -98,38 +42,6 @@ const LoginOP = () => {
       handleSignUp(userName, userEmail, userPassword);
     } else {
       handleSignIn(userEmail, userPassword);
-    }
-  };
-
-  const handleGuestLogin = async () => {
-    try {
-      const guestEmail = "test@in.in";
-      const guestPassword = "Test@123";
-      const guestName = "Guest";
-
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        guestEmail,
-        guestPassword
-      );
-
-      const user = userCredential.user;
-
-      await updateProfile(user, {
-        displayName: guestName,
-        photoURL: GUEST_USER_ICON,
-      });
-      const { uid, email, displayName, photoURL } = auth.currentUser;
-      dispatch(
-        addUser({
-          uid: uid,
-          email: email,
-          displayName: displayName,
-          photoURL: photoURL,
-        })
-      );
-    } catch (error) {
-      handleAuthError(error);
     }
   };
 
