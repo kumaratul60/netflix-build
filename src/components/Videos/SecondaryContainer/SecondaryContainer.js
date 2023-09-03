@@ -23,8 +23,8 @@ const SecondaryContainer = () => {
   };
 
   return (
-    <div className="relative bg-black">
-      <div className="-mt-52 px-4 md:px-8 lg:px-12 xl:px-20 2xl:px-15 z-20">
+    <div className="relative bg-black ">
+      <div className="mt-[75%] md:-mt-52 px-4 md:px-8 lg:px-12 xl:px-20 2xl:px-15 z-20 ">
         {isLoading ? (
           <>
             <ShimmerEffect />

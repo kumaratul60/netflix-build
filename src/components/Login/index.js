@@ -56,7 +56,7 @@ const LoginOP = () => {
       <div>
         <Header />
         <div className="absolute">
-          <img className="object-cover" src={BG_URL} alt="background-logo" />
+          <img className="object-cover  h-screen md:h-auto" src={BG_URL} alt="background-logo" />
         </div>
       </div>
 

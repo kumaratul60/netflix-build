@@ -25,11 +25,11 @@ const GPTSuggestions = () => {
 
   return (
     <div className="text-white p-4 bg-black bg-opacity-85 px-5 w-9/12 m-auto">
-      {isLoading ? (
+      { isLoading ? (
         <Spinner />
       ) : (
-        <MovieList title={movieNames[0]} movies={movieResults} />
-      )}
+        <MovieList title={ movieNames[0] } movies={ movieResults } />
+      ) }
 
       {/* {movieNames.map((movieName, index) => (
         <MovieList key={movieName} title={movieName} movie={movieResults[index]} />

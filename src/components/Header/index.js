@@ -14,14 +14,14 @@ const Header = () => {
     useAuthHeaderActions();
 
   return (
-    <div className="absolute w-screen px-14 py-3 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img className="w-44" src={NETFLIX_LOGO} alt="logo" />
+    <div className="absolute w-screen px-14 py-3 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row  justify-between">
+      <img className="w-44 mx-auto md:mx-0" src={NETFLIX_LOGO} alt="logo" />
 
       {user && (
-        <div className="flex items-center justify-center space-x-5">
+        <div className="flex items-center justify-center  md:space-x-5">
           {showGptSearchState && (
             <select
-              className=" py-2 rounded-md p-2 focus:outline-none bg-gray-900 text-white"
+              className=" py-2 rounded-md p-2 mr-4 md:mr-0 focus:outline-none bg-gray-900 text-white"
               onChange={handleLanguageChange}
             >
               {SUPPORTED_LANGUAGES.map((lang) => (
@@ -33,18 +33,18 @@ const Header = () => {
           )}
 
           <button
-            className="p-[6px]  py-2 bg-purple-900 hover:bg-sky-900 transition-all ease-in text-white rounded-lg shadow-sm"
+            className="p-[6px] py-2 mr-4 md:mr-0 bg-purple-900 hover:bg-sky-900 transition-all ease-in text-white rounded-lg shadow-sm"
             onClick={handleGptSearchClick}
           >
-            {showGptSearchState ? "back to Browse" : "GPT Search"}
+            {showGptSearchState ? "Home" : "GPT Search"}
           </button>
           <img
-            className="w-12 h-12 object-cover rounded-full"
+            className="hidden md:block  w-12 h-12 m-2 object-cover rounded-full"
             src={user?.photoURL ?? SIGN_OUT_LOGO}
             alt="user-icon"
           />
           <button
-            className="p-[6px]  rounded-lg bg-orange-600 hover:bg-red-600"
+            className="p-[6px] truncate rounded-lg bg-orange-600  hover:bg-red-600"
             onClick={handleSignOut}
           >
             Sign out
