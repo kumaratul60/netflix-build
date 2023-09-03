@@ -30,7 +30,7 @@ const useMovieTrailer = (movie_id) => {
 
   useEffect(() => {
     if (!trailer) fetchTrailer();
-  }, []);
+  }, [dispatch]);
 };
 
 export default useMovieTrailer;

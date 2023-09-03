@@ -10,7 +10,7 @@ const useNowPlayingMovies = () => {
 
   useEffect(() => {
     !nowPlaying && fetchMovies();
-  }, []);
+  }, [dispatch]);
 
   const fetchMovies = async () => {
     const movies = await fetch(API_URL, API_OPTIONS);

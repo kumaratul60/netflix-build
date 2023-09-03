@@ -8,10 +8,10 @@ export const SIGN_OUT_LOGO =
   "https://cdn-icons-png.flaticon.com/512/2504/2504929.png";
 
 export const USER_AVATAR =
-  "https://steamuserimages-a.akamaihd.net/ugc/952979309891314703/9532DF045969448C2280ACAF3E181CDF190D4EA2/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false";
+  "https://img.freepik.com/premium-vector/login-icon-comic-style-people-secure-access-cartoon-vector-illustration-white-isolated-background-password-approved-splash-effect-business-concept_157943-6970.jpg?w=2000";
 
 export const GUEST_USER_ICON =
-  "https://lab.kb.nl/sites/default/files/styles/large/public/images/font-awesome_4-7-0_user_256_0_333333_none.png?itok=Ur-NisRj";
+  "https://cfocussoftware.com/wp-content/uploads/2017/04/office-365-government-groups-feature-working-with-guest-access-300x300.jpg";
 
 const API_TOKEN = process.env.REACT_APP_TMBD_KEY;
 

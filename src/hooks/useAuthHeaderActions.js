@@ -6,6 +6,7 @@ import { auth } from "../firebase/firebase";
 import { addUser, removeUser } from "../utils/slices/authUserSlice";
 import { gptToggle } from "../utils/slices/gptSlice";
 import { changeLanguage } from "../utils/slices/configSlice";
+import { getMovieById } from "../utils/slices/nowPlayingSlice";
 
 const useAuthHeaderActions = () => {
   const navigate = useNavigate();
@@ -49,6 +50,10 @@ const useAuthHeaderActions = () => {
     dispatch(gptToggle());
   };
 
+  const handleBackToHomeClick = () => {
+    dispatch(getMovieById());
+  };
+
   const handleLanguageChange = (e) => {
     dispatch(changeLanguage(e.target.value));
   };
@@ -56,6 +61,7 @@ const useAuthHeaderActions = () => {
   return {
     handleSignOut,
     handleGptSearchClick,
+    handleBackToHomeClick,
     handleLanguageChange,
   };
 };

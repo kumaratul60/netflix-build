@@ -9,7 +9,7 @@ const useTopRatedMovies = () => {
 
   useEffect(() => {
     !topMovies && fetchMovies();
-  }, []);
+  }, [dispatch]);
 
   const fetchMovies = async () => {
     const movies = await fetch(TOP_RATED_MOVIES, API_OPTIONS);

@@ -8,7 +8,7 @@ const useUpcomingMovies = () => {
   const upComingMovies = useSelector((store) => store.movies?.upcomingMovies);
   useEffect(() => {
     !upComingMovies && fetchMovies();
-  }, []);
+  }, [dispatch]);
 
   const fetchMovies = async () => {
     const movies = await fetch(UPCOMING_MOVIES, API_OPTIONS);

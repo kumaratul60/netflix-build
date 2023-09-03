@@ -44,6 +44,7 @@
 - fetched gptMoviesSuggestions from TMDB
 - created gptSlice added data
 - Reused Movie List component to make movie suggestion container
+- Movie Details based on click on movie poster
 - Memoization
 - Added .env file
 - Adding .env file to gitignore
@@ -68,6 +69,7 @@
     - Title & description
     - Movie Suggestions
       - MovieList \* N (in vertical scroll)
+    - Get separate Movie Details
 
 - Netflix GPT
   - Search Bar

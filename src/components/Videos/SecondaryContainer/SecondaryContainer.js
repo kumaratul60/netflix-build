@@ -12,7 +12,7 @@ const SecondaryContainer = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 1200);
   }, []);
 
   const renderMovieList = (title, movieList) => {
