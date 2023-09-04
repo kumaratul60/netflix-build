@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { createRef, useRef, useState } from "react";
 import Header from "../Header";
 import { BG_URL, GOOGLE_LOGO } from "../../constants/constants";
 import { checkValidData, checkValidDataWithName } from "../../utils/validate";
@@ -15,11 +15,16 @@ const LoginOP = () => {
     handleGuestLogin,
     handleSignInWithGoogle,
   } = useAuth();
+  const [showPassword, setShowPassword] = useState(false);
 
   // get the reference of input fields by useRef
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleBtnClick = () => {
     const userName = name.current ? name.current.value.trim() : "";
@@ -84,12 +89,20 @@ const LoginOP = () => {
           type="text"
           placeholder="Email Address"
         />
-        <input
-          ref={password}
-          className="w-9/12 py-4 my-2 px-5 mx-10 rounded-md bg-[#333333] outline-none focus:ring-2"
-          type="password"
-          placeholder="Password"
-        />
+        <div className="relative">
+          <input
+            ref={password}
+            className="w-9/12 py-4 my-2 px-5 mx-10  rounded-md bg-[#333333] outline-none focus:ring-2"
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+          />
+          <button
+            className="absolute right-[3.2rem] md:right-[4.8rem] top-6 text-gray-400"
+            onClick={togglePasswordVisibility}
+          >
+            {showPassword ? "Hide" : "Show"}
+          </button>
+        </div>
         <p className="text-red-500 text-sm font-semibold  mx-11 my-[-6px] mb-8">
           {errorMessage}
         </p>
@@ -100,12 +113,12 @@ const LoginOP = () => {
           {buttonText}
         </button>
 
-        <button
+        {/* <button
           className="w-9/12  py-2 my-1 px-5 mx-10 rounded-md  bg-[#0931e5] flex items-center justify-center"
           onClick={handleSignInWithGoogle}
         >
           <img className="h-8 w-8 " src={GOOGLE_LOGO} alt="google-icon" />
-        </button>
+        </button> */}
 
         {isSignInForm && (
           <button

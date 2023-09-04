@@ -77,7 +77,7 @@ const useAuth = () => {
       // The signed-in user info.
       const user = result.user;
 
-      console.log({ result, credential, token, user });
+      // console.log({ result, credential, token, user });
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -85,7 +85,7 @@ const useAuth = () => {
       const email = error.customData.email;
 
       const credentialError = GoogleAuthProvider.credentialFromError(error);
-      console.log({ errorCode, errorMessage, email, credentialError });
+      // console.log({ errorCode, errorMessage, email, credentialError });
     }
   };
 

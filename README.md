@@ -11,6 +11,7 @@
 - Sign up Form
 - Login as guest
 - Goggle Authentication
+- Password show/hide
 - Form Validation
 - useRef Hook
 - Firebase Setup
@@ -61,6 +62,7 @@
   - redirect to browse page
   - Guest Login
   - Goggle Authentication
+  - Password show/hide
 
 **After Authentication**
 
