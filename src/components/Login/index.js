@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import Header from "../Header";
-import { BG_URL } from "../../constants/constants";
+import { BG_URL, GOOGLE_LOGO } from "../../constants/constants";
 import { checkValidData, checkValidDataWithName } from "../../utils/validate";
 import useAuth from "../../hooks/useAuth";
 
@@ -13,6 +13,7 @@ const LoginOP = () => {
     handleSignUp,
     handleSignIn,
     handleGuestLogin,
+    handleSignInWithGoogle,
   } = useAuth();
 
   // get the reference of input fields by useRef
@@ -56,7 +57,11 @@ const LoginOP = () => {
       <div>
         <Header />
         <div className="absolute">
-          <img className="object-cover  h-screen md:h-auto" src={BG_URL} alt="background-logo" />
+          <img
+            className="object-cover  h-screen md:h-auto"
+            src={BG_URL}
+            alt="background-logo"
+          />
         </div>
       </div>
 
@@ -89,15 +94,22 @@ const LoginOP = () => {
           {errorMessage}
         </p>
         <button
-          className="w-9/12  py-4 my-6 px-5 mx-10 rounded-md  bg-[#E50914]"
+          className="w-9/12  py-4 my-4 px-5 mx-10 rounded-md  bg-[#E50914]"
           onClick={handleBtnClick}
         >
           {buttonText}
         </button>
 
+        <button
+          className="w-9/12  py-2 my-1 px-5 mx-10 rounded-md  bg-[#0931e5] flex items-center justify-center"
+          onClick={handleSignInWithGoogle}
+        >
+          <img className="h-8 w-8 " src={GOOGLE_LOGO} alt="google-icon" />
+        </button>
+
         {isSignInForm && (
           <button
-            className="w-9/12 py-4  px-5 mx-10 rounded-md  bg-[#e57b09]"
+            className="w-9/12 py-4 my-2 px-5 mx-10 rounded-md  bg-[#e57b09]"
             onClick={handleGuestLogin}
           >
             Login as Guest

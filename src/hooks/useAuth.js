@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithPopup,
   updateProfile,
 } from "firebase/auth";
 
-import { auth } from "../firebase/firebase";
+import { auth, provider } from "../firebase/firebase";
 import { GUEST_USER_ICON, USER_AVATAR } from "../constants/constants";
 import { addUser } from "../utils/slices/authUserSlice";
 
@@ -65,6 +67,28 @@ const useAuth = () => {
     }
   };
 
+  const handleSignInWithGoogle = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+
+      console.log({ result, credential, token, user });
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+
+      const email = error.customData.email;
+
+      const credentialError = GoogleAuthProvider.credentialFromError(error);
+      console.log({ errorCode, errorMessage, email, credentialError });
+    }
+  };
+
   const handleGuestLogin = async () => {
     try {
       const guestEmail = "test@in.in";
@@ -105,6 +129,7 @@ const useAuth = () => {
     handleSignUp,
     handleSignIn,
     handleGuestLogin,
+    handleSignInWithGoogle
   };
 };
 
