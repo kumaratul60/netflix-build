@@ -5,8 +5,8 @@ const VideoTitle = ({ title, overview }) => {
       <p className="text-base md:w-1/4 sm:text-lg leading-snug tracking-tight">
         {overview}
       </p>
-      <div className="mt-3 flex flex-col sm:flex-row items-center">
-        <button className="w-full sm:w-auto px-6 py-1 mt-1 bg-white text-black text-lg rounded-md mb-2 sm:mb-0 sm:mr-2 hover:bg-opacity-70">
+      <div className="mt-6 flex flex-col sm:flex-row items-center">
+        <button className="w-full sm:w-auto px-6 py-1 mt-2 bg-white text-black text-lg rounded-md mb-2 sm:mb-0 sm:mr-2 hover:bg-opacity-70">
           <span className="text-xl">▶</span> Play
         </button>
         <button className="w-full sm:w-auto px-6 py-1 mt-2 bg-gray-400 bg-opacity-50 text-lg rounded-md  mb-5 md:mb-0">
