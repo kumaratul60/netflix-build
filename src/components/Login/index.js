@@ -113,12 +113,12 @@ const LoginOP = () => {
           {buttonText}
         </button>
 
-        {/* <button
+        <button
           className="w-9/12  py-2 my-1 px-5 mx-10 rounded-md  bg-[#0931e5] flex items-center justify-center"
           onClick={handleSignInWithGoogle}
         >
           <img className="h-8 w-8 " src={GOOGLE_LOGO} alt="google-icon" />
-        </button> */}
+        </button>
 
         {isSignInForm && (
           <button
