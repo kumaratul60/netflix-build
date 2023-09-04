@@ -20,6 +20,7 @@
 - Implement Sign In user Api
 - Created Redux Store with userSlice - Redux tool kit
 - Implemented Sign out
+- Implemented Sign with Google
 - implement Protected routes
   - if the user is not logged in Redirect /browse to Login Page and vice-versa
 - Unsubscribed to the onAuthStateChanged callback
@@ -47,6 +48,7 @@
 - created gptSlice added data
 - Reused Movie List component to make movie suggestion container
 - Movie Details based on click on movie poster
+- Shimmer UI Effect to make interactive experience
 - Memoization
 - Added .env file
 - Adding .env file to gitignore
