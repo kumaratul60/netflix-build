@@ -69,15 +69,13 @@ const useAuth = () => {
 
   const handleSignInWithGoogle = async () => {
     try {
-      const result = await signInWithPopup(auth, provider);
+      await signInWithPopup(auth, provider);
 
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      // The signed-in user info.
-      const user = result.user;
-
-      console.warn({ result, credential, token, user });
+      // const result = await signInWithPopup(auth, provider);
+      // const credential = GoogleAuthProvider.credentialFromResult(result);
+      // const token = credential.accessToken;
+      // const user = result.user;
+      // console.log({ result, credential, token, user });
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -85,7 +83,7 @@ const useAuth = () => {
       const email = error.customData.email;
 
       const credentialError = GoogleAuthProvider.credentialFromError(error);
-      console.warn({ errorCode, errorMessage, email, credentialError });
+      console.error({ errorCode, errorMessage, email, credentialError });
     }
   };
 
