@@ -97,7 +97,7 @@ const LoginOP = () => {
             placeholder="Password"
           />
           <button
-            className="absolute right-[3.5rem] md:right-[4.8rem] top-6 text-gray-400"
+            className="absolute right-[4rem] md:right-[4.8rem] top-6 text-gray-400"
             onClick={togglePasswordVisibility}
           >
             {showPassword ? "Hide" : "Show"}
