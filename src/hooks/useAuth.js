@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -8,7 +9,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 
-import { auth, provider } from "../firebase/firebase";
+import { auth, gitProvider, provider } from "../firebase/firebase";
 import { GUEST_USER_ICON, USER_AVATAR } from "../constants/constants";
 import { addUser } from "../utils/slices/authUserSlice";
 
@@ -82,6 +83,21 @@ const useAuth = () => {
     }
   };
 
+  const handleSignInWithGitHub = async () => {
+    try {
+      await signInWithPopup(auth, gitProvider);
+
+      // const result = await signInWithPopup(auth, provider);
+      // const credential = GithubAuthProvider.credentialFromResult(result);
+      // const token = credential.accessToken;
+      // const user = result.user;
+      // console.log({ result, credential, token, user });
+    } catch (error) {
+      const credentialError = GithubAuthProvider.credentialFromError(error);
+      console.error({ error, credentialError });
+    }
+  };
+
   const handleGuestLogin = async () => {
     try {
       const guestEmail = "test@in.in";
@@ -123,6 +139,7 @@ const useAuth = () => {
     handleSignIn,
     handleGuestLogin,
     handleSignInWithGoogle,
+    handleSignInWithGitHub,
   };
 };
 

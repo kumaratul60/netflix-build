@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import Header from "../Header";
-import { BG_URL, GOOGLE_LOGO } from "../../constants/constants";
+import { BG_URL, GITHUB_LOGO, GOOGLE_LOGO } from "../../constants/constants";
 import { checkValidData, checkValidDataWithName } from "../../utils/validate";
 import useAuth from "../../hooks/useAuth";
 
@@ -14,6 +14,7 @@ const LoginOP = () => {
     handleSignIn,
     handleGuestLogin,
     handleSignInWithGoogle,
+    handleSignInWithGitHub,
   } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -113,13 +114,6 @@ const LoginOP = () => {
           {buttonText}
         </button>
 
-        <button
-          className="w-9/12  py-2 my-1 px-5 mx-10 rounded-md  bg-[#0931e5] flex items-center justify-center"
-          onClick={handleSignInWithGoogle}
-        >
-          <img className="h-8 w-8 " src={GOOGLE_LOGO} alt="google-icon" />
-        </button>
-
         {isSignInForm && (
           <button
             className="w-9/12 py-4 my-2 px-5 mx-10 rounded-md  bg-[#e57b09]"
@@ -128,6 +122,21 @@ const LoginOP = () => {
             Login as Guest
           </button>
         )}
+
+        <div className="flex flex-row items-center gap-4 mt-8 justify-center">
+          <div
+            className="w-10 h-10 rounded-full flex items-center justify-center  cursor-pointer bg-white hover:opacity-80 transition"
+            onClick={handleSignInWithGoogle}
+          >
+            <img className="h-10 w-10 " src={GOOGLE_LOGO} alt="google-icon" />
+          </div>
+          {/* <div
+            className="w-10 h-10 rounded-full flex items-center justify-center  cursor-pointer bg-white hover:opacity-80 transition"
+            onClick={handleSignInWithGitHub}
+          >
+            <img className="h-10 w-10 " src={GITHUB_LOGO} alt="google-icon" />
+          </div> */}
+        </div>
 
         <p className="mt-14 mx-14">
           <span className="text-gray-400">{promptText}</span>

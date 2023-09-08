@@ -16,6 +16,8 @@ export const GUEST_USER_ICON =
 export const GOOGLE_LOGO =
   "https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png";
 
+export const GITHUB_LOGO  = "https://cdn-icons-png.flaticon.com/512/25/25231.png"
+
 const API_TOKEN = process.env.REACT_APP_TMBD_KEY;
 
 export const API_OPTIONS = {
