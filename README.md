@@ -1,5 +1,7 @@
 # <mark> NetflixGPT-build </mark>
 
+[![wakatime](https://wakatime.com/badge/user/1499525d-7f42-4e3a-b9c6-fbf14aa13712/project/6cc84c9e-b6df-4fca-8fd1-c61687bca79b.svg)](https://wakatime.com/badge/user/1499525d-7f42-4e3a-b9c6-fbf14aa13712/project/6cc84c9e-b6df-4fca-8fd1-c61687bca79b)
+
 ### Process & Planning for development
 
 - React
