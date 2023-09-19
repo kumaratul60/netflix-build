@@ -2,6 +2,35 @@
 
 [![wakatime](https://wakatime.com/badge/user/1499525d-7f42-4e3a-b9c6-fbf14aa13712/project/6cc84c9e-b6df-4fca-8fd1-c61687bca79b.svg)](https://wakatime.com/badge/user/1499525d-7f42-4e3a-b9c6-fbf14aa13712/project/6cc84c9e-b6df-4fca-8fd1-c61687bca79b)
 
+## **Core Features**
+
+**Before Authentication**
+
+- Home page
+- Login/Sign up page
+  - Sign up/Sign in form
+  - redirect to browse page
+  - Guest Login
+  - Goggle Authentication
+  - Password show/hide
+
+**After Authentication**
+
+- Browse
+
+  - Header
+  - Main movie page
+    - Trailer in background
+    - Title & description
+    - Movie Suggestions
+      - MovieList \* N (in vertical scroll)
+    - Get separate Movie Details
+
+- Netflix GPT
+  - Search Bar
+  - Movie Suggestion
+  - Multi-Lingual support
+
 ### Process & Planning for development
 
 - React
@@ -55,32 +84,3 @@
 - Added .env file
 - Adding .env file to gitignore
 - Made our Site Responsive
-
-## **Core Features**
-
-**Before Authentication**
-
-- Home page
-- Login/Sign up page
-  - Sign up/Sign in form
-  - redirect to browse page
-  - Guest Login
-  - Goggle Authentication
-  - Password show/hide
-
-**After Authentication**
-
-- Browse
-
-  - Header
-  - Main movie page
-    - Trailer in background
-    - Title & description
-    - Movie Suggestions
-      - MovieList \* N (in vertical scroll)
-    - Get separate Movie Details
-
-- Netflix GPT
-  - Search Bar
-  - Movie Suggestion
-  - Multi-Lingual support
