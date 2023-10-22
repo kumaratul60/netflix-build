@@ -1,18 +1,16 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { IMAGE_URL, NULL_IMAGE } from "../../constants/constants";
-import Spinner from "../Shimmer/Spinner";
 import {
   formatNumberWithSuffix,
   minutesToHours,
 } from "../../utils/statsConversion";
-import { useEffect, useState } from "react";
+import Spinner from "../Shimmer/Spinner";
 import Shimmer from "./Shimmer4MovieDetail";
 
 const DetailMovieCard = () => {
   const [loading, setLoading] = useState(true);
   const getAllDetails = useSelector((store) => store.movies?.movieAllDetails);
-  const getIds = useSelector((store) => store.movies?.movieDetails);
-  // console.log({ getAllDetails, getIds });
 
   useEffect(() => {
     const timer = setTimeout(() => {

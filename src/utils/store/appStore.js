@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "../slices/authUserSlice";
-import movieReducer from "../slices/nowPlayingSlice";
-import gptReducer from "../slices/gptSlice";
 import configReducer from "../slices/configSlice";
+import gptReducer from "../slices/gptSlice";
+import movieReducer from "../slices/nowPlayingSlice";
+import watchLaterSliceReducer from "../slices/watchLaterSlice";
 
 const appStore = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const appStore = configureStore({
     movies: movieReducer,
     gpt: gptReducer,
     config: configReducer,
+    watchlater: watchLaterSliceReducer,
   },
 });
 

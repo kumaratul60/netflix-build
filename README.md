@@ -20,11 +20,15 @@
 
   - Header
   - Main movie page
+
     - Trailer in background
     - Title & description
     - Movie Suggestions
       - MovieList \* N (in vertical scroll)
     - Get separate Movie Details
+
+  - Add/Remove movies at Watch Later page
+  - individual vedio trailer by clicking it
 
 - Netflix GPT
   - Search Bar

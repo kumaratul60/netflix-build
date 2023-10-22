@@ -4,7 +4,7 @@ import DetailMovieCard from "./DetailMovieCard";
 
 const MovieDetails = ({ mId }) => {
   useMovieDetails(mId);
-
+console.log("kkkk");
   return (
     <>
       <div className="fixed -z-10">

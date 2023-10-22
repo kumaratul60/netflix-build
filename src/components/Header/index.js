@@ -1,16 +1,22 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   NETFLIX_LOGO,
   SIGN_OUT_LOGO,
   SUPPORTED_LANGUAGES,
 } from "../../constants/constants";
 
-import useAuthHeaderActions from "../../hooks/useAuthHeaderActions";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuthHeaderActions } from "../../hooks";
+import { getPlayNow } from "../../utils/slices/nowPlayingSlice";
 
 const Header = () => {
   const user = useSelector((store) => store.user);
   const showGptSearchState = useSelector((store) => store.gpt?.showGptSearch);
   const getMovie = useSelector((store) => store.movies?.movieDetails);
+  const watchList = useSelector((store) => store.watchlater?.items);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const {
     handleSignOut,
@@ -18,6 +24,11 @@ const Header = () => {
     handleBackToHomeClick,
     handleLanguageChange,
   } = useAuthHeaderActions();
+
+  const playVideo = (movie) => {
+    dispatch(getPlayNow(movie));
+    navigate("/play");
+  };
 
   return (
     <div className="absolute w-screen px-14 py-3 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row  justify-between">
@@ -49,11 +60,22 @@ const Header = () => {
               : "GPT Search"}
           </button>
 
+          {watchList && watchList.length > 0 ? (
+            <Link to="/watchlater">
+              <button className="text-white p-[6px] py-2 px-2 mr-4 md:mr-0 bg-teal-600 hover:bg-sky-900 transition-all ease-in rounded-lg shadow-sm">
+                {`My Watch List (${watchList.length})`}
+              </button>
+            </Link>
+          ) : (
+            ""
+          )}
+
           <img
             className="hidden md:block  w-10 h-10 m-2 object-cover rounded-full"
             src={user?.photoURL ?? SIGN_OUT_LOGO}
             alt="user-icon"
           />
+
           <button
             className="p-[6px] truncate rounded-lg bg-orange-600  hover:bg-red-600"
             onClick={handleSignOut}
